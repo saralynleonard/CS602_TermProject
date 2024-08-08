@@ -1,0 +1,20 @@
+<h3>Add Mission</h3>
+<form method="POST" action="/mission/add" id="add-mission-form">
+
+    <input class="input" type="text" id="missionName" name="missionName" placeholder="Mission Name" required> 
+
+    <input type="date" id="launchDate" name="launchDate" placeholder="Launch Date" required>
+
+    <input type="number" id="missionCost" name="missionCost" min="1" step="1" placeholder="Mission Cost">
+
+    <textarea name="aboutMission" id="aboutMission" placeholder="Description of mision..."></textarea>
+
+    <label for="isFeatured" class="custom-checkbox">Is this a featured mission?
+        <input type="checkbox" name="isFeatured" id="isFeatured" class="custom-checkbox">
+    </label>
+
+    <section id="add-mission-form-btn">
+        <input type="submit" value="Save" id="add-mission-save">
+        <input type="button" value="Cancel" id="add-mission-cancel" onclick="cancelAdd()">
+    </section>
+</form>

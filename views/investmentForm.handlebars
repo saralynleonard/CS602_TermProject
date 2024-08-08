@@ -1,0 +1,13 @@
+<h3>Invest in {{missionData.missionName}}</h3>
+<form method="POST" action="/invest/add" id = "add-investment-form">
+    <input type="number" id="investmentAmount" name="investmentAmount" min="1" step="1" placeholder="Investment Amount">
+
+    <input type="hidden" id="accountID" name="accountID" value="{{userData.accountID}}">
+
+    <input type="hidden" id="missionID" name="missionID" value="{{missionData.missionID}}">
+
+    <section id="add-investment-form-btn">
+        <input type="submit" value="Save" id="add-investment-save">
+        <input type="button" value="Cancel" id="add-investment-cancel" onclick="cancelInvestment()">
+    </section>
+</form>

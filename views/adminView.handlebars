@@ -1,0 +1,57 @@
+{{#if data}}
+{{#if (equals data.isAdmin true)}}
+<section id="add-mission-section">
+    <button id="add-mission-btn" onclick="addMission()">
+        + Add Mission
+    </button>
+</section>
+<h3>Upcoming Missions</h3>
+<div id="table-container">
+    <table>
+        {{#if results}}
+        <thead>
+            <tr>
+                <th>Mission Name</th>
+                <th>Launch Date</th>
+                <th>Mission Cost</th>
+                <th></th>
+            </tr>
+        </thead>
+        {{else}}
+        <tr><td colspan="3">No Missions found ... Add One!</td></tr>
+        {{/if}}
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td id="table-msn-name"><a href="/admin/mission/{{this.id}}">{{this.missionName}}</a></td>
+                <td>{{this.launchDate}}</td>
+                <td>${{formatNumber this.missionCost}}</td>
+                <td>
+                    <a href="/mission/edit/{{this.id}}">Edit</a> |
+                    <a href="/mission/delete/{{this.id}}">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{/if}}
+{{/if}}
+
+<div id="user-list">
+    <table>
+        <thead>
+            <tr>
+                <th>Users</th>
+            </tr>
+        </thead>
+        {{#each users}}
+        <tr>
+            <td><a href="/user/{{this.id}}">{{this.firstName}} {{this.lastName}}</a></td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+
+
+

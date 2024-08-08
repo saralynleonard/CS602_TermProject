@@ -1,0 +1,35 @@
+<section id="acct-actions">
+    <a href="/account/logout" id="acct-logout-btn">Logout </a> <div id="acct-actions-separator">|</div>
+    <a href="/account/edit/{{data.id}}" id="acct-edit-btn"> Edit Account</a>
+</section>
+<section id="acct-view-greeting">
+    <h3>Hi, {{data.firstName}}!</h3>
+</section>
+{{#if investments}}
+<p>View, edit or delete your investments.</p>
+ <table>
+    <thead>
+        <tr>
+            <th>Mission Name</th>
+            <th>Investment Amount</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each investments}}
+        <tr>
+            <td id="table-msn-name"><a href="#">{{this.missionID.missionName}}</a></td>
+            <td>${{this.investmentAmount}}</td>
+            <td>
+                <a href="/investment/edit/{{this.id}}">Edit</a> |
+                <a href="/investment/delete/{{this.id}}">Delete</a>                
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+ </table>
+  <a href="/missions" id="view-missions-btn">Browse Available Missions</a>
+{{else}}
+<p id="acct-no-investment">You haven't made an investment yet. <br>
+<a href="/missions" id="acct-mission-browse-btn">Browse available missions</a> and select one to invest in.</p>
+{{/if}}

@@ -1,0 +1,34 @@
+<h3>Administrative Details for {{mission.missionName}}</h3>
+
+<div id="launch-date"><p>Launch Date: {{mission.launchDate}}</p></div>
+<div id="details-about">
+    <p>
+        {{mission.aboutMission}}
+    </p>
+</div>
+<div id="admin-mission-detail-options">
+    <a id="admin-mission-detail-edit" href="/mission/edit/{{mission.id}}">Edit</a>
+    <div id="admin-mission-detail-options-separator">|</div>
+    <a id="admin-mission-detail-delete" href="/mission/delete/{{mission.id}}">Delete</a>
+</div>
+<div id="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Investment ID</th>
+                <th>User</th>
+                <th>Investment Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each investments}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.accountID.firstName}} {{this.accountID.lastName}}</td>
+                <td>${{formatNumber this.investmentAmount}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+

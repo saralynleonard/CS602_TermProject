@@ -1,0 +1,29 @@
+<h3>Edit the {{data.missionName}} Mission</h3>
+<form method="post" action="/mission/edit" id="edit-mission-form">
+    <input type="text" name="missionName" id="missionName" value="{{data.missionName}}">
+    <br>
+
+    <input type="date" name="launchDate" id="launchDate" value="{{data.launchDate}}">
+
+    <input type="number" name="missionCost" id="missionCost" value="{{data.missionCost}}">
+
+    <textarea name="aboutMission" id="aboutMission">{{data.aboutMission}}</textarea>
+
+<br>
+
+    <label for="isFeatured" class="custom-checkbox">Is this a featured mission?
+        {{#if data.isFeatured}}
+            <input type="checkbox" name="isFeatured" id="isFeatured" class="custom-checkbox" checked>
+        {{else}}
+            <input type="checkbox" name="isFeatured" id="isFeatured" class="custom-checkbox">
+        {{/if}}
+    </label>
+
+
+    <input type="hidden" name="id" id="id" value="{{data.id}}">
+
+    <section id="edit-mission-form-btn">
+        <input type="submit" value="Save" id="edit-mission-save">
+        <input type="button" value="Cancel" id="edit-mission-cancel" onclick="cancelAdd()">
+    </section>
+</form>

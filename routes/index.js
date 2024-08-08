@@ -1,0 +1,41 @@
+const express = require('express')
+const router = express.Router()
+
+const missionDetails = require("./missionDetails")
+const displayMissions = require("./displayMissions")
+const displayAdmin = require("./adminView")
+const addMission = require("./addMission")
+const saveMission = require("./saveMission")
+const editMission = require("./editMission")
+const saveAfterEditMission = require("./saveAfterEditMission")
+const deleteMission = require('./deleteMission')
+const deleteMissionAfterConfirm = require('./deleteMissionAfterConfirm')
+const home = require('./home')
+const accountLogin = require('./account')
+const login = require('./login')
+const adminMissionDetails = require('./adminMissionDetails')
+const investForm = require('./invest')
+const logout = require('./logout')
+const userDetailsForAdmin = require('./displayUserAdmin')
+
+
+router.get('/', home)
+
+router.get('/mission/:id', missionDetails)
+router.get('/missions', displayMissions)
+router.get('/admin', displayAdmin)
+router.get('/new/mission', addMission)
+router.get('/mission/edit/:id', editMission)
+router.get('/mission/delete/:id', deleteMission)
+router.get('/login', accountLogin)
+router.get('/account/logout', logout)
+router.get('/account', login)
+router.get('/admin/mission/:id', adminMissionDetails)
+router.get('/invest/:id', investForm) 
+router.get('/user/:id', userDetailsForAdmin)
+
+router.post('/mission/add', saveMission)
+router.post('/mission/edit', saveAfterEditMission)
+router.post('/mission/delete', deleteMissionAfterConfirm)
+
+module.exports = router

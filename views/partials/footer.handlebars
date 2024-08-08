@@ -1,0 +1,11 @@
+<footer>
+    &copy; <span id="year"></span>; Built with NodeJs & MongoDB
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const yearElement = document.getElementById('year')
+        const currentYear = new Date().getFullYear()
+        yearElement.textContent = currentYear
+    })
+</script>

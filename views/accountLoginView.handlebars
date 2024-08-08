@@ -1,0 +1,21 @@
+{{#if logoutMsg}}
+<h4>{{logoutMst}}</h4>
+{{/if}}
+<h3>Account Login</h3>
+<form method="GET" action="/account" id="account-login-form">
+        <label for="userAcct">Select a user</label>
+        <select name="userAcct" id="userAcct">
+            <option value="Select a user"></option>
+
+            {{#each data}}
+            <option value="{{this.id}}">{{this.firstName}} {{this.lastName}}</option>
+            {{/each}}
+
+        </select>
+
+        <section id="login-form-btn">
+            <input type="submit" value="Login" id="acct-login">
+            <input type="button" value="Cancel" id="acct-login-cancel" onclick="cancelLogin()">
+        </section>
+
+</form>

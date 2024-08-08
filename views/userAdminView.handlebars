@@ -1,0 +1,27 @@
+<h3>{{data.firstName}} {{data.lastName}} Account Details</h3>
+<section id="user-details-admin">
+    <p>First Name: {{data.firstName}}</p>
+    <p>Last Name: {{data.lastName}}</p>
+    <p>Email Address: {{data.email}}</p>
+</section>
+
+{{#if userInvestments}}
+<table id="table-container">
+    <thead>
+        <tr>
+            <th>Investment ID</th>
+            <th>Investment Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each userInvestments}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>${{formatNumber this.investmentAmount}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p id="no-investment-history-admin">There is no investment history for {{data.firstName}} {{data.lastName}}.</p>
+{{/if}}

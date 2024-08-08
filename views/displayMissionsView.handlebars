@@ -1,0 +1,16 @@
+<h3 id="missions">Upcoming Missions</h3>
+{{#each data}}
+<section id="card-section">
+    <div id="card">
+        <div id="card-title">{{this.missionName}}</div>
+        <div id="card-body">
+            <p>
+                {{this.aboutMission}}
+            </p>
+    </div>
+    <div id="launch-date"><p>Launch Date: {{this.launchDate}}</p></div>
+        {{!-- <button type="button" id="card-button">Click Me!</button> --}}
+        <a href="/mission/{{this.id}}" id="card-button">Mission Details</a>
+    </div>
+    {{/each}}
+</section>

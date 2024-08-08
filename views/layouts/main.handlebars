@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CosmicQuarry</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/clickActions.js" type="text/javascript"></script>
+</head>
+<header>
+    <h1><a href="/" id="main-title">CosmicQuarry</a></h1>
+    <nav>
+        <ul>
+            {{#if data}}
+            {{#if (equals data.isAdmin true)}}
+            <li>
+                <a href="/admin" id="nav-admin">admin</a>
+            </li>
+            {{/if}}
+            {{/if}}
+            <li>
+                <a href="/login">account</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<body>
+<main>
+    {{{body}}}
+</main>
+    <footer>
+        {{> footer}}
+    </footer>
+</body>
+</html>

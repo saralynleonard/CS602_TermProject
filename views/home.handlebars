@@ -1,0 +1,18 @@
+<h2 id="featured-missions">Featured Missions</h2>
+<section id="card-section">
+    {{#each data}}
+    <div id="card">
+        <div id="card-circle"></div>
+        <div id="card-title">{{this.missionName}}</div>
+        <div id="card-body">
+            <p>
+                {{this.aboutMission}}
+            </p>
+    </div>
+        {{!-- <button type="button" id="card-button">Click Me!</button> --}}
+        <div id="launch-date"><p>Launch Date: {{this.launchDate}}</p></div>
+        <a href="/mission/{{this.id}}" id="card-button">Mission Details</a>
+    </div>
+    {{/each}}
+</section>
+<a href="/missions" id="view-missions-btn">View All Missions</a>

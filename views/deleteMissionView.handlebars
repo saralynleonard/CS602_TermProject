@@ -1,0 +1,18 @@
+<h3>Delete the {{data.missionName}} Mission</h3>
+<form method="post" action="/mission/delete" id="delete-mission-form">
+    <input type="text" name="missionName" id="missionName" value="{{data.missionName}}">
+    <br>
+
+    <input type="date" name="launchDate" id="launchDate" value="{{data.launchDate}}">
+
+    <input type="number" name="missionCost" id="missionCost" value="{{data.missionCost}}">
+
+    <textarea name="aboutMission" id="aboutMission">{{data.aboutMission}}</textarea>
+
+    <input type="hidden" name="id" id="id" value="{{data.id}}">
+
+    <section id="delete-mission-form-btn">
+        <input type="submit" value="Delete" id="delete-mission-save">
+        <input type="button" value="Cancel" id="delete-mission-cancel" onclick="cancelDelete()">
+    </section>
+</form>
