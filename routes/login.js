@@ -3,7 +3,7 @@ const Mission = require('../models/mission')
 const Investment = require('../models/investment')
 const { ObjectId } = require('mongodb')
 
-
+//provides data for user's account page
 module.exports = async (req, res, next) => {
     let id = req.query.userAcct
     //check to make sure the id passed in the query string is a valid object id; if it is, find the account, if not render the 404 page
@@ -41,7 +41,12 @@ module.exports = async (req, res, next) => {
         //         }
         //     })
         // } else {
-        res.render('accountView', {data: userData, investments})
+        //if the logged in user is an administrator, direct to the admin view; otherwise, render the account view
+        if (loggedInAccount.isAdmin) {
+            res.redirect('/admin')
+        } else {
+            res.render('accountView', {data: userData, investments})
+        }
     } else {
         res.render('404')
     } 

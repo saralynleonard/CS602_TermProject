@@ -17,6 +17,8 @@ const adminMissionDetails = require('./adminMissionDetails')
 const investForm = require('./invest')
 const logout = require('./logout')
 const userDetailsForAdmin = require('./displayUserAdmin')
+const editInvestment = require('./editInvestment')
+const saveAfterEditInvestment = require('./saveAfterEditInvestment')
 
 
 router.get('/', home)
@@ -33,9 +35,12 @@ router.get('/account', login)
 router.get('/admin/mission/:id', adminMissionDetails)
 router.get('/invest/:id', investForm) 
 router.get('/user/:id', userDetailsForAdmin)
+router.get('/investment/edit/:id', editInvestment) 
+//router.get('/investment/delete/:id', )
 
 router.post('/mission/add', saveMission)
 router.post('/mission/edit', saveAfterEditMission)
 router.post('/mission/delete', deleteMissionAfterConfirm)
+router.post('/investment/edit', saveAfterEditInvestment)
 
 module.exports = router

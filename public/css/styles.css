@@ -345,6 +345,8 @@ input[type="checkbox"] {
 #delete-mission-cancel,
 #add-investment-save,
 #add-investment-cancel,
+#edit-investment-save,
+#edit-investment-cancel,
 #acct-login,
 #acct-login-cancel {
     background-color: var(--background-color);
@@ -359,6 +361,7 @@ input[type="checkbox"] {
 #add-mission-save, 
 #edit-mission-save,
 #add-investment-save,
+#edit-investment-save,
 #acct-login {
     border: 1px solid var(--green-light);
 }
@@ -370,7 +373,8 @@ input[type="checkbox"] {
 #add-mission-cancel, 
 #edit-mission-cancel, 
 #delete-mission-cancel,
-#add-investment-cancel
+#add-investment-cancel,
+#edit-investment-cancel,
 #acct-login-cancel {
     border: 1px solid var(--gray-light);
 }

@@ -24,7 +24,6 @@ module.exports = async (req, res) => {
         //use loggedInAccount id to find investments and missions associated with the logged-in user;
         let investments = await Investment.find({accountID: id}).lean()
         .populate('missionID', 'missionName').select('investmentAmount accountID').lean()
-        console.log("investments: ", investments)
 
         let userData = {
             id: loggedInAccount._id,

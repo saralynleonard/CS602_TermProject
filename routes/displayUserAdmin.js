@@ -32,11 +32,10 @@ module.exports = async (req, res, next) => {
                         missionID: inv.missionID
                     }
                 })
-                console.log(userInvestments)
 
                 let loggedInAccount = req.session.loggedInUser
                 let loggedInData = await Account.findById(loggedInAccount)
-                let loggedIn = {
+                let data = {
                     id: loggedInData._id,
                     isAdmin: loggedInData.isAdmin
                 }
@@ -44,7 +43,7 @@ module.exports = async (req, res, next) => {
                     {data:
                         userData,
                         userInvestments,
-                        loggedIn
+                        data
                     }
                 )
             } else {
