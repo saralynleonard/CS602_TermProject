@@ -19,6 +19,7 @@ const logout = require('./logout')
 const userDetailsForAdmin = require('./displayUserAdmin')
 const editInvestment = require('./editInvestment')
 const saveAfterEditInvestment = require('./saveAfterEditInvestment')
+const missionLookup = require('./missionLookup')
 
 
 router.get('/', home)
@@ -42,5 +43,6 @@ router.post('/mission/add', saveMission)
 router.post('/mission/edit', saveAfterEditMission)
 router.post('/mission/delete', deleteMissionAfterConfirm)
 router.post('/investment/edit', saveAfterEditInvestment)
+router.post('/lookup/mission', missionLookup)
 
 module.exports = router

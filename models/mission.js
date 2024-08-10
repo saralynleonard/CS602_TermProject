@@ -7,6 +7,10 @@ const missionSchema = new Schema({
     aboutMission: String,
     predictedMaterial: String, 
     missionCost: Number,
+    targetAsteroid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Asteroid"
+    },
     materialSold: Number, 
     isFeatured: Boolean,
     isComplete: Boolean

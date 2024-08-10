@@ -379,6 +379,71 @@ input[type="checkbox"] {
     border: 1px solid var(--gray-light);
 }
 
+#admin-mission-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#admin-mission-search-form {
+    position: relative;
+    width: 300px;
+}
+
+#admin-mission-search-form input {
+    width: 100%;
+    padding: 10px 40px 10px 50px;
+    box-sizing: border-box;
+    border: 1px solid var(--blue-light);
+}
+
+#admin-mission-search i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: var(--blue-light);
+}
+
+#admin-mission-search-submit {
+    background-color: transparent;
+    border: none;
+    color: var(--orange);
+    cursor: pointer;
+}
+
+#admin-mission-search-submit i {
+    font-size: 1.5rem;
+    width: 30px;
+}
+
+#asteroid-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#asteroid-list li {
+    padding: 5px 10px;
+}
+
+#asteroid-list button {
+    background: transparent;
+    border: none;
+    color: var(--gray-light);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    transition: .1s ease-in;
+}
+
+#asteroid-list button:hover {
+    text-decoration: underline;
+}
+
 #details-about {
     margin-bottom: 30px;
     padding-left: 300px;

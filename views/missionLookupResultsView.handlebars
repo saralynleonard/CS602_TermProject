@@ -1,0 +1,41 @@
+<h3>Missions targeting {{data.search}}</h3>
+<div id="table-container">
+    <table>
+        {{#if data.results}}
+        <thead>
+            <tr>
+                <th>Mission Name</th>
+                <th>Launch Date</th>
+                <th>Mission Cost</th>
+                <th></th>
+            </tr>
+        </thead>
+        {{else}}
+        <tr><td colspan="3">No Missions found ... Add One!</td></tr>
+        {{/if}}
+        <tbody>
+            {{#each data.results}}
+            <tr>
+                <td id="table-msn-name"><a href="/admin/mission/{{this.id}}">{{this.missionName}}</a></td>
+                <td>{{this.launchDate}}</td>
+                <td>${{formatNumber this.missionCost}}</td>
+                <td>
+                    <a href="/mission/edit/{{this.id}}">Edit</a> |
+                    <a href="/mission/delete/{{this.id}}">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <ul id="asteroid-list">
+        {{#each data.asteroids}}
+        <li>
+            <form method="POST" action="/lookup/mission">
+                <input type="hidden" name="asteroidName" id="asteroidName" value="{{this.asteroidName}}">
+                <button>{{this.asteroidName}}</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
+

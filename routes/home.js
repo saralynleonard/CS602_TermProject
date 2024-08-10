@@ -1,8 +1,11 @@
 const Mission = require('../models/mission')
+const Account = require('../models/account')
 
 module.exports = async (req, res, next) => {
 
     let missions = await Mission.find({isFeatured: true})
+
+    let loggedInAccount = await Account.findById(req.session.loggedInUser)
 
     let results = missions.map( miss => {
         return {
@@ -17,7 +20,7 @@ module.exports = async (req, res, next) => {
         {
             data: results
         }
-    )
+    ) 
 
     function formatLongDate(date) {
         const options = {

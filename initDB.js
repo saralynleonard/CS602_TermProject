@@ -3,6 +3,7 @@ const mongoose  = require('mongoose')
 const createAccount = require('./initAccount')
 const createMission = require('./initMission')
 const createInvestment = require('./initInvestment')
+const createAsteroid = require('./initAsteroid')
 
 async function initDB() {
     try {
@@ -11,8 +12,9 @@ async function initDB() {
         await mongoose.connect(uri)
         console.log('MongoDB Connected...')
 
-        //run initInvestment.js, initAccount.js, and initMission.js; this will delete all documents in each collection and add the seed data
+        //run initInvestment.js, initAccount.js, initAsteroid.js, and initMission.js; this will delete all documents in each collection and add the seed data
         await createAccount()
+        await createAsteroid()
         await createMission()
         await createInvestment()
     } catch (error) {

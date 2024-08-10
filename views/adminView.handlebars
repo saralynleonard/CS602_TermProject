@@ -5,6 +5,14 @@
         + Add Mission
     </button>
 </section>
+<section id="admin-mission-search">
+    <form method="POST" action="/lookup/mission" id="admin-mission-search-form">
+        <input type="text" name="asteroidName" id="asteroidName" placeholder="Search by target asteroid" required>
+        <button type="submit" id="admin-mission-search-submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>    
+    </form>
+</section>
 <h3>Upcoming Missions</h3>
 <div id="table-container">
     <table>

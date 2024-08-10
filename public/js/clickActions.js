@@ -17,3 +17,7 @@ function cancelLogin(){
 function cancelInvestment(){
     window.location.href = '/'
 }
+
+function cancelInvestmentEdit(){
+    window.location.href = '/login'
+}
