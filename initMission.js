@@ -29,10 +29,46 @@ module.exports = async (req, res, next) => {
         isFeatured: true
     })
 
+    let mission4 = new Mission({
+        missionName: "Galactic Dig",
+        launchDate: '2036-09-28',
+        aboutMission: "The AstroHarvest mission is set to mine and analyze valuable minerals from the asteroid 46610 Bésixdouze, located in the asteroid belt between Mars and Jupiter. This mission aims to assess the feasibility of large-scale asteroid mining and extract precious resources, such as platinum-group metals and rare earth elements, to support future space exploration and resource needs on Earth.",
+        missionCost: 184983900,
+        isFeatured: false
+    })
+
+    let mission5 = new Mission({
+        missionName: "OreQuest", 
+        launchDate: '2041-11-09',
+        aboutMission: "To extract and analyze high-value platinum-group metals from the asteroid 2011 UW158, a large, metallic asteroid rich in precious metals.",
+        missionCost: 201094000,
+        isFeatured: false
+    })
+
+    let mission6 = new Mission({
+        missionName: "SpaceMine",
+        launchDate: '2035-02-19',
+        aboutMission: "The Celestial Dig mission aims to explore and mine the asteroid 2012 TC4 to extract rare earth elements and volatile compounds, such as water ice. This mission will focus on understanding the asteroid’s structure, composition, and potential resource value, contributing to scientific knowledge and advancing space mining technologies.", 
+        missionCost: 164983900,
+        isFeatured: true
+    })
+
+    let mission7 = new Mission({
+        missionName: "Platinum Extractor", 
+        launchDate: '2036-05-01',
+        aboutMission: "The PlatinumPioneer mission aims to explore and mine platinum-group metals from the asteroid 357439 (2004 JG6), a known platinum-rich asteroid", 
+        missionCost: 195983900,
+        isFeatured: false
+    })
+
     await Promise.all([
         mission1.save(), 
         mission2.save(), 
-        mission3.save()
+        mission3.save(),
+        mission4.save(),
+        mission5.save(),
+        mission6.save(),
+        mission7.save()
     ])
 }
 
