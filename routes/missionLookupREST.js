@@ -1,6 +1,6 @@
 const Mission = require('../models/mission')
 const Asteroid = require('../models/asteroid')
-const formatDate = require('../public/js/formatDate')
+const { formatLongDate, formatShortDate } = require('../public/js/formatDate')
 
 module.exports = async (req, res, next) => {
     let parameter = req.params.name
@@ -33,7 +33,7 @@ module.exports = async (req, res, next) => {
                 missions.map(miss => {
                     return '    <mission id="' + miss._id + '">\n' + 
                     '       <missionName>' + miss.missionName + '</missionName>\n' + 
-                    '       <launchDate>' + miss.launchDate + '</launchDate>\n' + '     <missionCost>' + miss.missionCost + '</missionCost>\n</mission>'
+                    '       <launchDate>' + formatShortDate(miss.launchDate) + '</launchDate>\n' + '     <missionCost>' + miss.missionCost + '</missionCost>\n</mission>'
                 }).join('\n') + '\n</missions>'
     
                 res.type('application/xml')
@@ -53,7 +53,7 @@ module.exports = async (req, res, next) => {
                         missionName: miss.missionName,
                         missionCost: miss.missionCost,
                         aboutMission: miss.aboutMission,
-                        launchDate: formatDate(miss.launchDate),
+                        launchDate: formatLongDate(miss.launchDate),
                         targetAsteroid: miss.targetAsteroid
                     }
                 })
@@ -71,4 +71,4 @@ module.exports = async (req, res, next) => {
         }
     }) 
 }
-///http://localhost:3000/mission/lookup/asteroid/16+Psyche
+//http://localhost:3000/mission/lookup/asteroid/16+Psyche

@@ -6,15 +6,24 @@ CosmicQuarry will use user investments to help fund space mining missions. After
 * CosmicQuarry was built using Node.js and MongoDB.
 * Run initDB.js to initialize the database
 * View the [Home Page](http://localhost:3000/ "Home Page")
-* View the [Admin Page](http://localhost:3000/admin "Admin Page")
-* [Login](http://localhost:3000/login "Login") by selecting one of three users
-  - Saralyn Leonard: Admin user
+* To view the [Admin Page](http://localhost:3000/admin "Admin Page"), login as Saralyn Leonard. Other users include:
   - John Doe: Regular user; has two investments
   - Jane Smith: Regular user; has no investments
 * Click Logout on the Account page to select a different user
-* On the Admin page, type the name of an asteroid in the search bar to find missions targeting that asteroid (i.e. 16 Psyche, 243 Ida, 511 Davida, etc.)
+* On the Admin page, type the name of an asteroid in the search bar to find missions targeting that asteroid. Asteroids used in this application are:
+  - 16 Psyche
+  - 243 Ida
+  - 511 Davida 
+  - 2012 TC4
+  - 162173 Ryugu
+  - 46610 Besixdouze
 * REST APIs in XML & JSON:
-  - http://localhost:3000/mission/lookup/asteroid/16+Davida
+  - http://localhost:3000/mission/lookup/asteroid/16+Psyche
+  - http://localhost:3000/mission/lookup/asteroid/511+Davida
     - code for this is found in /routes/missionLookupREST.js
+    - tested using Insomnia
+  - http://localhost:3000/missions/list
+    - code for this is found in /routes/missionsREST.js
+    - tested using Insomnia
 
 

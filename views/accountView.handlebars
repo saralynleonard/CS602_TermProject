@@ -11,20 +11,23 @@
     <thead>
         <tr>
             <th>Mission Name</th>
-            <th>Investment Amount</th>
+            <th>Investment</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         {{#each investments}}
+        {{#if this.missionID.isComplete}}
+        {{else}}
         <tr>
             <td id="table-msn-name"><a href="/mission/{{this.missionID._id}}">{{this.missionID.missionName}}</a></td>
             <td>${{formatNumber this.investmentAmount}}</td>
             <td>
                 <a href="/investment/edit/{{this._id}}">Edit</a> |
-                <a href="/investment/delete/{{this._id}}">Delete</a>                
+                <a href="/investment/delete/{{this._id}}">Delete</a>              
             </td>
         </tr>
+        {{/if}}
         {{/each}}
     </tbody>
  </table>
@@ -33,3 +36,24 @@
 <p id="acct-no-investment">You haven't made an investment yet. <br>
 <a href="/missions" id="acct-mission-browse-btn">Browse available missions</a> and select one to invest in.</p>
 {{/if}}
+{{#each investments}}
+{{#if this.missionID.isComplete}}
+<h3>Past Investments</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Mision Name</th>
+            <th>Investment</th>
+            <th>Payout</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{this.missionID.missionName}}</td>
+            <td>${{formatNumber this.investmentAmount}}</td>
+            <td>${{formatNumber this.paymentAmount}}</td>
+        </tr>
+    </tbody>
+</table>
+{{/if}}
+{{/each}}

@@ -7,4 +7,19 @@ function formatLongDate(date) {
     }
     return new Intl.DateTimeFormat('en-US', options).format(date)
 }
-module.exports = formatLongDate
+function formatShortDate(date) {
+    const year = date.getFullYear()
+    const month = padNumber(date.getMonth() +1)
+    const day = padNumber(date.getDate())
+
+    return `${year}-${month}-${day}`
+}
+
+function padNumber(number) {
+    return number.toString().padStart(2, '0')
+}
+
+module.exports = {
+    formatLongDate,
+    formatShortDate
+}

@@ -1,11 +1,11 @@
 const Mission = require('../models/mission')
 const Asteroid = require('../models/asteroid')
-const formatLongDate = require('../public/js/formatDate')
+const {formatLongDate} = require('../public/js/formatDate')
 
 module.exports = async (req, res, next) => {
     search = req.body.asteroidName
 
-    //find the asteroid entered
+    //find the asteroid entered by the administrator
     let asteroid = await Asteroid.findOne({asteroidName: search})
     if (!asteroid) {
         let error = "Invalid Search Entry."

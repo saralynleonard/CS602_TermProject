@@ -14,8 +14,13 @@ module.exports = async (req, res, next) => {
         let loggedInAccount = await Account.findById(req.session.loggedInUser)
 
         // let investments = await Investment.find({accountID: id}).lean()
-        let investments = await Investment.find({accountID: id}).lean()
-        .populate('missionID', 'missionName').select('investmentAmount accountID').lean()
+        // let investments = await Investment.find({accountID: id}).lean()
+        // .populate('missionID', 'missionName').select('investmentAmount accountID').lean()
+
+        let investments = await Investment.find({accountID: id}).lean().populate({
+            path: 'missionID',
+            select: 'missionName missionCost materialSold isComplete'
+        }).lean()
 
         let userData = {
             id: loggedInAccount._id,

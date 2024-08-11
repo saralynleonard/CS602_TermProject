@@ -1,5 +1,6 @@
 const Account = require('../models/account')
 const Investment = require('../models/investment')
+const Mission = require('../models/investment')
 const { ObjectId } = require('mongodb')
 
 module.exports = async (req, res) => {
@@ -22,8 +23,12 @@ module.exports = async (req, res) => {
         let loggedInAccount = await Account.findById(id)
 
         //use loggedInAccount id to find investments and missions associated with the logged-in user;
-        let investments = await Investment.find({accountID: id}).lean()
-        .populate('missionID', 'missionName').select('investmentAmount accountID').lean()
+        // let investments = await Investment.find({accountID: id}).lean()
+        // .populate('missionID', 'missionName isComplete').select('investmentAmount accountID isComplete').lean()
+        let investments = await Investment.find({accountID: id}).lean().populate({
+            path: 'missionID',
+            select: 'missionName missionCost materialSold isComplete'
+        }).lean()
 
         let userData = {
             id: loggedInAccount._id,
