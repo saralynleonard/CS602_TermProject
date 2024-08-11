@@ -13,3 +13,4 @@ const asteroidSchema = new Schema({
 const Asteroid = mongoose.model("Asteroid", asteroidSchema)
 
 module.exports = Asteroid;
+

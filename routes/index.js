@@ -26,6 +26,7 @@ const missionLookup = require('./missionLookup')
 
 const missionLookupREST = require('./missionLookupREST')
 const allMissionsREST = require('./missionsREST')
+const missionPriceLookupREST = require('./missionPriceREST')
 
 //setup the initial route
 router.get('/', home)
@@ -58,5 +59,6 @@ router.post('/lookup/mission', missionLookup)
 //REST APIs
 router.get('/mission/lookup/asteroid/:name', missionLookupREST)
 router.get('/missions/list', allMissionsREST)
+router.get('/missions/price', missionPriceLookupREST)
 
 module.exports = router

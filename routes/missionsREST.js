@@ -1,6 +1,5 @@
 const Mission = require('../models/mission')
 const { formatShortDate } = require('../public/js/formatDate')
-
 //http://localhost:3000/missions/list
 module.exports = async (req, res, next) => {
     res.format({

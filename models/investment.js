@@ -20,3 +20,4 @@ const investmentSchema = new Schema({
 const Investment = mongoose.model("Investment", investmentSchema)
 
 module.exports = Investment; 
+

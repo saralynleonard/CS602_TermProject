@@ -5,7 +5,6 @@ const { ObjectId } = require('mongodb')
 
 module.exports = async (req, res) => {
     let accounts = await Account.find({})
-
     if (req.session.loggedInUser === undefined) {
         let results = accounts.map( acc => {
             return {
@@ -21,23 +20,20 @@ module.exports = async (req, res) => {
     } else { 
         let id = req.session.loggedInUser
         let loggedInAccount = await Account.findById(id)
-
         //use loggedInAccount id to find investments and missions associated with the logged-in user;
-        // let investments = await Investment.find({accountID: id}).lean()
-        // .populate('missionID', 'missionName isComplete').select('investmentAmount accountID isComplete').lean()
         let investments = await Investment.find({accountID: id}).lean().populate({
             path: 'missionID',
             select: 'missionName missionCost materialSold isComplete'
         }).lean()
-
         let userData = {
             id: loggedInAccount._id,
             firstName: loggedInAccount.firstName,
             lastName: loggedInAccount.lastName,
             isAdmin: loggedInAccount.isAdmin
         }
-
         res.render('accountView', {data: userData, investments})
     }
-
 }
+
+        // let investments = await Investment.find({accountID: id}).lean()
+        // .populate('missionID', 'missionName isComplete').select('investmentAmount accountID isComplete').lean()

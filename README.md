@@ -25,5 +25,8 @@ CosmicQuarry will use user investments to help fund space mining missions. After
   - http://localhost:3000/missions/list
     - code for this is found in /routes/missionsREST.js
     - tested using Insomnia
+  - http://localhost:3000/missions/price?low=1849839000&high=2010940000
+    - code for this is found in /routes/missionPriceREST.js
+    - tested using Insomnia
 
 

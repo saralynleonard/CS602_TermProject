@@ -13,10 +13,6 @@ module.exports = async (req, res, next) => {
         req.session.isAdmin = account.isAdmin
         let loggedInAccount = await Account.findById(req.session.loggedInUser)
 
-        // let investments = await Investment.find({accountID: id}).lean()
-        // let investments = await Investment.find({accountID: id}).lean()
-        // .populate('missionID', 'missionName').select('investmentAmount accountID').lean()
-
         let investments = await Investment.find({accountID: id}).lean().populate({
             path: 'missionID',
             select: 'missionName missionCost materialSold isComplete'
@@ -28,6 +24,22 @@ module.exports = async (req, res, next) => {
             lastName: loggedInAccount.lastName,
             isAdmin: loggedInAccount.isAdmin
         }
+        //if the logged in user is an administrator, direct to the admin view; otherwise, render the account view
+        if (loggedInAccount.isAdmin) {
+            res.redirect('/admin')
+        } else {
+            res.render('accountView', {data: userData, investments})
+        }
+    } else {
+        res.render('404')
+    } 
+}   
+
+
+        // let investments = await Investment.find({accountID: id}).lean()
+        // let investments = await Investment.find({accountID: id}).lean()
+        // .populate('missionID', 'missionName').select('investmentAmount accountID').lean()
+
         // if (account.isAdmin = true) {
         //     let missions = await Mission.find({})
         //     let results = missions.map( miss => {  
@@ -46,13 +58,3 @@ module.exports = async (req, res, next) => {
         //         }
         //     })
         // } else {
-        //if the logged in user is an administrator, direct to the admin view; otherwise, render the account view
-        if (loggedInAccount.isAdmin) {
-            res.redirect('/admin')
-        } else {
-            res.render('accountView', {data: userData, investments})
-        }
-    } else {
-        res.render('404')
-    } 
-}   

@@ -4,13 +4,10 @@ const { formatLongDate, formatShortDate } = require('../public/js/formatDate')
 
 module.exports = async (req, res, next) => {
     let parameter = req.params.name
-    
     //replace '+' in the parameter with a space
     let asteroidName = parameter.replace(/\+/g, ' ')
-
     //find the asteroid by name
     let asteroid = await Asteroid.findOne({ asteroidName: asteroidName})
- 
     res.format({
         //case if accept = application/json
         'application/json': async () => {
