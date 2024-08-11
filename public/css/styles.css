@@ -140,6 +140,8 @@ justify-content: center;
 #mission-details {
 margin-top: 50px;
 font-size: var(--font-size-lg);
+align-items: center;
+justify-content: center;
 }
 
 #launch-date {
@@ -171,7 +173,6 @@ text-decoration: underline;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-align-items: center;
 justify-content: center;
 }
 
@@ -348,7 +349,9 @@ input[type="checkbox"] {
 #edit-investment-save,
 #edit-investment-cancel,
 #acct-login,
-#acct-login-cancel {
+#acct-login-cancel,
+#delete-investment-save, 
+#delete-investment-cancel {
     background-color: var(--background-color);
     color: var(--gray-light);
     padding: 10px;
@@ -366,7 +369,8 @@ input[type="checkbox"] {
     border: 1px solid var(--green-light);
 }
 
-#delete-mission-save {
+#delete-mission-save,
+#delete-investment-save {
     border: 1px solid red;
 }
 
@@ -375,7 +379,8 @@ input[type="checkbox"] {
 #delete-mission-cancel,
 #add-investment-cancel,
 #edit-investment-cancel,
-#acct-login-cancel {
+#acct-login-cancel,
+#delete-investment-cancel {
     border: 1px solid var(--gray-light);
 }
 

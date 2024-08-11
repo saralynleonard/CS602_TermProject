@@ -1,9 +1,10 @@
 const Mission = require('../models/mission')
 const Asteroid = require('../models/asteroid')
+const formatLongDate = require('../public/js/formatDate')
 
 module.exports = async (req, res, next) => {
     search = req.body.asteroidName
-    
+
     //find the asteroid entered
     let asteroid = await Asteroid.findOne({asteroidName: search})
     if (!asteroid) {
@@ -34,14 +35,5 @@ module.exports = async (req, res, next) => {
     
         res.render('missionLookupResultsView', {data: {results, search, asteroids}})
 
-        function formatLongDate(date) {
-            const options = {
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric'
-            }
-            return new Intl.DateTimeFormat('en-US', options).format(date)
-        }
     }
 }

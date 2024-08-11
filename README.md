@@ -12,5 +12,9 @@ CosmicQuarry will use user investments to help fund space mining missions. After
   - John Doe: Regular user; has two investments
   - Jane Smith: Regular user; has no investments
 * Click Logout on the Account page to select a different user
+* On the Admin page, type the name of an asteroid in the search bar to find missions targeting that asteroid (i.e. 16 Psyche, 243 Ida, 511 Davida, etc.)
+* REST APIs in XML & JSON:
+  - http://localhost:3000/mission/lookup/asteroid/16+Davida
+    - code for this is found in /routes/missionLookupREST.js
 
 

@@ -13,7 +13,6 @@ module.exports = async (req, res, next) => {
             
             if (ObjectId.isValid(id)) {
                 let user = await Account.findById(id)
-                console.log(user)
                 
                 let userData = {
                     id: user._id,
@@ -41,9 +40,9 @@ module.exports = async (req, res, next) => {
                 }
                 res.render('userAdminView', 
                     {data:
+                        data,
                         userData,
                         userInvestments,
-                        data
                     }
                 )
             } else {
@@ -53,5 +52,5 @@ module.exports = async (req, res, next) => {
             let errorMsg = "You are unauthorized to view administrative details."
             res.render('404', {data: errorMsg})
         }
-    }
+    } 
 }

@@ -1,8 +1,8 @@
-<h3>{{data.firstName}} {{data.lastName}} Account Details</h3>
+<h3>{{userData.firstName}} {{userData.lastName}} Account Details</h3>
 <section id="user-details-admin">
-    <p>First Name: {{data.firstName}}</p>
-    <p>Last Name: {{data.lastName}}</p>
-    <p>Email Address: {{data.email}}</p>
+    <p>First Name: {{userData.firstName}}</p>
+    <p>Last Name: {{userData.lastName}}</p>
+    <p>Email Address: {{userData.email}}</p>
 </section>
 
 {{#if userInvestments}}
@@ -23,5 +23,5 @@
     </tbody>
 </table>
 {{else}}
-<p id="no-investment-history-admin">There is no investment history for {{data.firstName}} {{data.lastName}}.</p>
+<p id="no-investment-history-admin">There is no investment history for {{userData.firstName}} {{userData.lastName}}.</p>
 {{/if}}

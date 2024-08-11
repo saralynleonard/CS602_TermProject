@@ -18,8 +18,8 @@
     <tbody>
         {{#each investments}}
         <tr>
-            <td id="table-msn-name"><a href="#">{{this.missionID.missionName}}</a></td>
-            <td>${{this.investmentAmount}}</td>
+            <td id="table-msn-name"><a href="/mission/{{this.missionID._id}}">{{this.missionID.missionName}}</a></td>
+            <td>${{formatNumber this.investmentAmount}}</td>
             <td>
                 <a href="/investment/edit/{{this._id}}">Edit</a> |
                 <a href="/investment/delete/{{this._id}}">Delete</a>                

@@ -1,0 +1,12 @@
+<h3>Delete your investment in {{data.mission.missionName}}</h3>
+<!--<h3>Edit your investment in the {{missionName}} mission<h3> -->
+<form method="POST" action="/investment/delete" id ="delete-investment-form">
+    <input type="number" name="investmentAmount" id="investmentAmount" value="{{data.investment.investmentAmount}}">
+
+    <input type="hidden" id="investmentID" name="investmentID" value="{{data.investment.id}}">
+
+    <section id="delete-investment-form-btn">
+        <input type="submit" value="Delete" id="delete-investment-save">
+        <input type="button" value="Cancel" id="delete-investment-cancel" onclick="cancelInvestmentEdit()">
+    </section>
+</form>
