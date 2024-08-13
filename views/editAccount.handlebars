@@ -1,0 +1,12 @@
+<h3>Edit Account</h3>
+<form method="POST" action="/edit/account" id="edit-acct-form">
+    <input type="text" name="firstName" id="firstName" value="{{user.firstName}}">
+    <input type="text" name="lastName" id="firstName" value="{{user.lastName}}">
+    <input type="text" name="email" id="email" value="{{user.email}}">
+    <input type="hidden" name="id" id="id" value="{{user.id}}">
+
+    <section id="edit-acct-form-btn">
+        <input type="submit" value="Save" id="edit-acct-save">
+        <input type="button" value="Cancel" id="edit-acct-cancel" onclick="cancelEditAcct()">
+    </section>
+</form>

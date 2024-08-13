@@ -23,10 +23,14 @@ const saveAfterEditInvestment = require('./saveAfterEditInvestment')
 const deleteInvestment = require('./deleteInvestment')
 const deleteAfterConfirmInvestment = require('./deleteInvestmentAfterConfirm')
 const missionLookup = require('./missionLookup')
+const userSearch = require('./userSearch')
+const editAcct = require('./editAccount')
+const saveEditAcct = require('./saveAfterEditAccount')
 
 const missionLookupREST = require('./missionLookupREST')
 const allMissionsREST = require('./missionsREST')
 const missionPriceLookupREST = require('./missionPriceREST')
+const saveAfterEditAccount = require('./saveAfterEditAccount')
 
 //setup the initial route
 router.get('/', home)
@@ -46,6 +50,7 @@ router.get('/invest/:id', investForm)
 router.get('/user/:id', userDetailsForAdmin)
 router.get('/investment/edit/:id', editInvestment) 
 router.get('/investment/delete/:id', deleteInvestment)
+router.get('/account/edit/:id', editAcct)
 
 //setup the POST routes
 router.post('/mission/add', saveMission)
@@ -55,6 +60,8 @@ router.post('/invest/add', saveInvestment)
 router.post('/investment/edit', saveAfterEditInvestment)
 router.post('/investment/delete', deleteAfterConfirmInvestment)
 router.post('/lookup/mission', missionLookup)
+router.post('/user/lookup/mission', userSearch)
+router.post('/edit/account', saveAfterEditAccount)
 
 //REST APIs
 router.get('/mission/lookup/asteroid/:name', missionLookupREST)

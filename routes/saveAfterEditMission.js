@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
     let mission = await Mission.findById(id)
 
     if(!mission) {
-        res.render('404')
+        res.render('404') 
         
     } else {
         mission.missionName = req.body.missionName,

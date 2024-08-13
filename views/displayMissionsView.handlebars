@@ -1,3 +1,11 @@
+<section id="user-mission-search">
+    <form method="POST" action="user/lookup/mission" id="user-mission-search-form">
+        <input type="text" name="missionName" id="missionName" placeholder="Search by mission name" required>
+        <button type="submit" id="user-mission-search-submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>    
+    </form>
+</section>
 <h3 id="missions">Upcoming Missions</h3>
 <section id="card-section">
     {{#each data}}
