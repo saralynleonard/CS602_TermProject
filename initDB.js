@@ -4,10 +4,11 @@ const createAccount = require('./initAccount')
 const createMission = require('./initMission')
 const createInvestment = require('./initInvestment')
 const createAsteroid = require('./initAsteroid')
+require('dotenv').config()
 
 async function initDB() {
     try {
-        const uri = 'mongodb+srv://saralynl:XfMFAzMZbKzQBuf8@cosmicquarry.guejfge.mongodb.net/?retryWrites=true&w=majority&appName=CosmicQuarry'
+        const uri = process.env.MONGO_URI
 
         await mongoose.connect(uri)
         console.log('MongoDB Connected...')
