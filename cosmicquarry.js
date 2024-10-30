@@ -2,6 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const handlebars = require('express-handlebars')
 const expressSession = require('express-session')
+const MongoStore = require('connect-mongo')
+const mongoose = require('mongoose')
+require('dotenv').config()
 const port = process.env.PORT || 3000
 const app = express()
 const connectDB = require('./db')
@@ -31,6 +34,7 @@ connectDB()
 
 //session middleware
 app.use(expressSession({
+    store: new MongoStore({ mongoUrl: process.env.MONGODB_URI }),
     secret: 'betelgeuse',
     resave: false, 
     saveUninitialized: false
