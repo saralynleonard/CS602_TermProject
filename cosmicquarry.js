@@ -5,7 +5,7 @@ const expressSession = require('express-session')
 const MongoStore = require('connect-mongo')
 const mongoose = require('mongoose')
 require('dotenv').config()
-const port = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
 const app = express()
 const connectDB = require('./db')
 
@@ -59,6 +59,6 @@ process.on('SIGINT', () => {
     })
 })
 
-app.listen(3000, function(){
-    console.log(`Connected on http://localhost:${port}; press Ctrl-C to terminate.`)
+app.listen(PORT, function(){
+    console.log(`Connected on http://localhost:${PORT}; press Ctrl-C to terminate.`)
 })
