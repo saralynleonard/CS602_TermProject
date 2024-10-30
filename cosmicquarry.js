@@ -34,10 +34,11 @@ connectDB()
 
 //session middleware
 app.use(expressSession({
-    store: new MongoStore({ mongoUrl: process.env.MONGODB_URI }),
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
     secret: 'betelgeuse',
     resave: false, 
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: { maxAge: 180 * 60 * 1000 }
 }))
 
 //routing
